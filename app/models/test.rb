@@ -6,9 +6,8 @@ class Test < ApplicationRecord
   has_many   :users, through: :user_tests
 
   def self.tests_by_category(category)
-    Test.joins("JOIN categories ON category_id = tests.category_id")
+    Test.joins(:category)
         .where("categories.title = ?", category)
         .order("tests.title DESC")
-        .pluck("tests.title")
   end
 end
