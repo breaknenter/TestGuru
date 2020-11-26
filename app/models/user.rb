@@ -6,9 +6,6 @@ class User < ApplicationRecord
   scope :list_of_tests, -> (level) { joins(:tests).where("tests.level = ?", level)
                                                   .order(:title) }
 
-  validates :name, presence: true
-  validates :name, length: { in: 4..16 }
-
-  validates :email, presence:   true
-  validates :email, uniqueness: true
+  validates :name,  presence: true, length: { in: 4..16 }
+  validates :email, presence: true, uniqueness: true
 end
