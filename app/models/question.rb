@@ -11,6 +11,6 @@ class Question < ApplicationRecord
   private
 
   def number_of_answers
-    errors.add(:number_of_answers, "Too many answers! Maximum possible number: #{MAX_ANSWERS}") if answers.size == MAX_ANSWERS
+    errors.add(:number_of_answers, "Too many answers! Maximum possible number: #{MAX_ANSWERS}") if answers.size > 3
   end
 end
