@@ -3,7 +3,9 @@ class User < ApplicationRecord
   has_many :user_tests
   has_many :tests, through: :user_tests
 
-  def list_of_tests(level)
-    tests.where(level: level).order("tests.title")
-  end
+  scope :list_of_tests, -> (level) { joins(:tests).where("tests.level = ?", level)
+                                                  .order(:title) }
+
+  validates :name,  presence: true, length: { in: 4..16 }
+  validates :email, presence: true, uniqueness: true
 end
