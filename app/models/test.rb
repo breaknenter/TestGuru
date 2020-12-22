@@ -17,6 +17,8 @@ class Test < ApplicationRecord
                                     greater_than_or_equal_to: 0 }
 
   def self.tests_by_category(category)
-    tests_categories(category).order(:title).pluck(:title)
+    tests_categories(category)
+      .order(:title)
+      .pluck(:title)
   end
 end

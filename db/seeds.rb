@@ -10,7 +10,7 @@ User.create([{ name: "Sergey", email: "net@net.ru" }, { name: "Nonentity", email
 
 category = Category.create(title: "Слова")
 
-test = Test.create(title: "Словарный запас", level: 0, category_id: category.id)
+test = Test.create(title: "Словарный запас", level: 0, category_id: category.id, author_id: User.first.id)
 
 question = Question.create(text: "Коллизия", test_id: test.id)
 
