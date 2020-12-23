@@ -2,7 +2,6 @@
 
 <form action="<%= test_questions_path %>" method="post">
   <%= token_tag %>
-  <input type="hidden" name="question[test_id]" value="<%= params[:test_id] %>">
 
   <p>
     <label for="question-text">Текст</label>

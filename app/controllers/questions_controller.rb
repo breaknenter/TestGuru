@@ -1,17 +1,18 @@
 class QuestionsController < ApplicationController
   before_action :find_test,     only: :index
-  before_action :find_question, only: [:show, :destroy]
+  before_action :find_question, only: %i[show destroy]
 
   def index
     @questions = @test.questions
   end
 
   def create
-    @question = Question.new(question_params)
+    test = Test.find(params[:test_id])
+    test.questions.create(question_params)
 
-    if @question.save
+    if test.save
       flash[:success] = "Вопрос создан!"
-      redirect_to @question
+      redirect_to test.questions.last
     else
       render :new
     end
@@ -37,15 +38,16 @@ class QuestionsController < ApplicationController
   end
 
   private
-    def question_params
-      params.require(:question).permit(:text, :test_id)
-    end
 
-    def find_test
-      @test = Test.find(params[:test_id])
-    end
+  def question_params
+    params.require(:question).permit(:text)
+  end
 
-    def find_question
-      @question = Question.find(params[:id])
-    end
+  def find_test
+    @test = Test.find(params[:test_id])
+  end
+
+  def find_question
+    @question = Question.find(params[:id])
+  end
 end

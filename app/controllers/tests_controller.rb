@@ -19,4 +19,6 @@ class TestsController < ApplicationController
 
   def destroy
   end
+
+  private
 end
