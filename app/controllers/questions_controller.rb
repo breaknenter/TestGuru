@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_test,     only: :index
+  before_action :find_test,     only: %i[index create]
   before_action :find_question, only: %i[show destroy]
 
   def index
@@ -7,12 +7,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    test = Test.find(params[:test_id])
-    test.questions.create(question_params)
+    question = @test.questions.new(question_params)
 
-    if test.save
+    if question.save
       flash[:success] = "Вопрос создан!"
-      redirect_to test.questions.last
+      redirect_to question
     else
       render :new
     end
