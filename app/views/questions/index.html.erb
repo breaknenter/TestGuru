@@ -1,0 +1,6 @@
+<h1>Вопросы теста #<%= @test.id %></h1>
+
+<% @questions.each do |question| %>
+  <p><%= question.id %> | <%= question.text %></p>
+  <p>-----------------------------------------</p>
+<% end %>

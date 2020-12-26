@@ -1,0 +1,12 @@
+<h1>Создать вопрос</h1>
+
+<form action="<%= test_questions_path %>" method="post">
+  <%= token_tag %>
+
+  <p>
+    <label for="question-text">Текст</label>
+    <input type="text" id="question-text" name="question[text]">
+  </p>
+
+  <input type="submit" value="Создать">
+</form>

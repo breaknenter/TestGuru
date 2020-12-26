@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create([{ name: "Sergey", email: "net@net.ru" }, { name: "Nonentity", email: "nonentity@mail.to" }])
+user = User.create(name: "Sergey", email: "net@net.ru")
 
 category = Category.create(title: "Слова")
 
-test = Test.create(title: "Словарный запас", level: 0, category_id: category.id)
+test = Test.create(title: "Словарный запас", level: 0, category_id: category.id, author_id: user.id)
 
 question = Question.create(text: "Коллизия", test_id: test.id)
 
