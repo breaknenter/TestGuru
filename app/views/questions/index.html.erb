@@ -1,6 +1,7 @@
-<h1>Вопросы теста #<%= @test.id %></h1>
+<strong>
+	Тест: <%= @test.title %>
+</strong>
 
-<% @questions.each do |question| %>
-  <p><%= question.id %> | <%= question.text %></p>
-  <p>-----------------------------------------</p>
-<% end %>
+<%= render @questions %>
+
+<%= link_to "К тесту", test_path(@test) %>
