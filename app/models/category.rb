@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  default_scope { select("categories.title").order(:title) }
+  default_scope { order(:title) }
 
   has_many :tests
 

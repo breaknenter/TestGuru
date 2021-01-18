@@ -2,7 +2,7 @@ class Question < ApplicationRecord
   MAX_ANSWERS = 4
 
   belongs_to :test
-  has_many   :answers
+  has_many   :answers, dependent: :destroy
 
   validate :number_of_answers
 

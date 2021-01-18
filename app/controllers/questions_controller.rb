@@ -1,39 +1,42 @@
 class QuestionsController < ApplicationController
-  before_action :find_test,     only: %i[index create]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test,     only: %i[index new create]
+  before_action :find_question, only: %i[show edit update destroy]
 
   def index
     @questions = @test.questions
   end
 
   def create
-    question = @test.questions.new(question_params)
+    @question = @test.questions.new(question_params)
 
-    if question.save
-      flash[:success] = "Вопрос создан!"
-      redirect_to question
+    if @question.save
+      redirect_to @question
     else
       render :new
     end
   end
 
   def new
+    @question = @test.questions.new
   end
 
   def edit
   end
 
   def show
-    render plain: @question.text
   end
 
   def update
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
   end
 
   def destroy
     @question.destroy
-    render plain: "Вопрос #{@question.id} удалён"
-    redirect_to questions_path
+    redirect_to test_questions_path(@question.test)
   end
 
   private
