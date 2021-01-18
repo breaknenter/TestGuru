@@ -7,6 +7,6 @@ module ApplicationHelper
   end
 
   def github_url
-    "Автор: #{AUTHOR}, <a href='#{REPO}'>GitHub</a>"
+    link_to "#{AUTHOR}", "#{REPO}"
   end
 end
