@@ -4,8 +4,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
 
   scope :list_of_tests, -> (level) { joins(:tests)
-  	                                   .where("tests.level = ?", level)
-                                       .order(:title) }
+  	                                   .where("tests.level = ?", level) }
 
   validates :name,  presence: true, length: { in: 4..16 }
   validates :email, presence: true, uniqueness: true

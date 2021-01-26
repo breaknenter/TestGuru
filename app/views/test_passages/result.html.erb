@@ -1,8 +1,6 @@
 <h1>Результаты теста: <%= @test_passage.test.title %> </h1>
 
-<% rate = @test_passage.result %>
-
-<% if rate >= 85  %>
+<% if @test_passage.success?  %>
   <p class="test-passed">
     Тест пройден!
   </p>
@@ -16,7 +14,7 @@
   <strong>Результат:</strong> <%= @test_passage.correct_questions %> из <%= @test_passage.test.questions.count %>.
 </p>
 <p>
-  <strong>Процент успеха: <%= rate %></strong>
+  <strong>Процент успеха: <%= @test_passage.calc_rate %></strong>
 </p>
 
 <%= link_to "К списку тестов", tests_path %>

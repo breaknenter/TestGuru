@@ -1,4 +1,6 @@
 class TestPassage < ApplicationRecord
+  WIN_RATE = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
@@ -17,8 +19,12 @@ class TestPassage < ApplicationRecord
     !current_question
   end
 
-  def result
-    ((self.correct_questions / test.questions.count.to_f) * 100).to_i
+  def success?
+    calc_rate >= WIN_RATE ? true : false
+  end
+
+  def calc_rate
+    ((correct_questions / test.questions.count.to_f) * 100).to_i
   end
 
   private
