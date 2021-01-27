@@ -14,7 +14,7 @@
   <strong>Результат:</strong> <%= @test_passage.correct_questions %> из <%= @test_passage.test.questions.count %>.
 </p>
 <p>
-  <strong>Процент успеха: <%= @test_passage.calc_rate %></strong>
+  <strong>Процент успеха:</strong> <%= @test_passage.calc_rate %>
 </p>
 
 <%= link_to "К списку тестов", tests_path %>
