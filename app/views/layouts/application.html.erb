@@ -12,6 +12,20 @@
   </head>
 
   <body>
+    <h1><%= link_to "TestGuru", root_path %></h1>
+
+    <nav>
+      <% if logged_in? %>
+        <span>Привет, <%= current_user.name %> |
+              <%= link_to "выйти", logout_path %></span>
+      <% else %>
+        <span>Привет, гость: <%= link_to "вход", login_path %> |
+              <%= link_to "регистрация", signup_path %> |
+              <%= link_to "о TestGuru", "/about" %>
+        </span>
+      <% end %>
+    </nav>
+
     <%= yield %>
 
     <%= render "shared/footer" %>

@@ -20,7 +20,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    calc_rate >= WIN_RATE ? true : false
+    calc_rate >= WIN_RATE
   end
 
   def calc_rate
