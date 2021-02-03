@@ -17,7 +17,7 @@
     <nav>
       <% if logged_in? %>
         <span>Привет, <%= current_user.name %> |
-              <%= link_to "выйти", logout_path %></span>
+              <%= link_to "выйти", logout_path, method: :delete %></span>
       <% else %>
         <span>Привет, гость: <%= link_to "вход", login_path %> |
               <%= link_to "регистрация", signup_path %> |

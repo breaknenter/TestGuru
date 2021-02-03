@@ -3,11 +3,11 @@ class TestsController < ApplicationController
   before_action :find_test, except: %i[index new create]
 
   def index
-    @tests = Test.all if logged_in?
+    @tests = Test.all
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = @current_user.added_tests.new(test_params)
 
     if @test.save
       redirect_to @test
@@ -47,13 +47,10 @@ class TestsController < ApplicationController
   private
 
   def find_test
-    @test = Test.find(params[:id])
+    @test ||= Test.find(params[:id])
   end
 
   def test_params
-    params
-      .require(:test)
-      .permit(:title, :level, :category_id)
-      .with_defaults(author_id: current_user.id)
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 end

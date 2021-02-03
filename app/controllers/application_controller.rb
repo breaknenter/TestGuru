@@ -1,15 +1,17 @@
 class ApplicationController < ActionController::Base
-  before_action :ref_url
   before_action :authenticate_user!
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-  helper_method :current_user, :logged_in?, :ref_url
+  helper_method :current_user, :logged_in?
 
   private
 
   def authenticate_user!
-    redirect_to login_path, alert: "Войдите или зарегистрируйтесь" unless current_user
+    unless current_user
+      cookies[:ref_url] = request.url
+      redirect_to login_path, alert: "Войдите или зарегистрируйтесь"
+    end
   end
 
   def current_user
@@ -18,10 +20,6 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!current_user
-  end
-
-  def ref_url
-    cookies[:url] = request.url
   end
 
   def record_not_found
