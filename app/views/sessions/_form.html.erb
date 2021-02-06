@@ -1,0 +1,21 @@
+<%= form_with url: sessions_path, local: true do |form| %>
+  <%= flash_msg(:alert) %>
+
+  <p>
+    <%= form.label :email, "Почта" %><br>
+    <%= form.text_field :email, id: :email %>
+  </p>
+
+  <p>
+    <%= form.label :password, "Пароль" %><br>
+    <%= form.password_field :password, id: :password %>
+  </p>
+
+  <p>
+    <%= form.submit "Войти" %>
+  </p>
+
+  <p>
+    <small><%= link_to "На главную", root_path %></small>
+  </p>
+<% end %>

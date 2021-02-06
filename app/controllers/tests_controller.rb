@@ -1,13 +1,13 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: %i[edit show update destroy start]
-  before_action :find_user, only: :start
+  skip_before_action :authenticate_user!, only: :index
+  before_action :find_test, except: %i[index new create]
 
   def index
     @tests = Test.all
   end
 
   def create
-    @test = Test.new(test_params)
+    @test = @current_user.added_tests.new(test_params)
 
     if @test.save
       redirect_to @test
@@ -40,24 +40,17 @@ class TestsController < ApplicationController
   end
 
   def start
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
+    @current_user.tests.push(@test)
+    redirect_to @current_user.test_passage(@test)
   end
 
   private
 
   def find_test
-    @test = Test.find(params[:id])
-  end
-
-  def find_user
-    @user = User.first
+    @test ||= Test.find(params[:id])
   end
 
   def test_params
-    params
-      .require(:test)
-      .permit(:title, :level, :category_id)
-      .with_defaults(author_id: 1)
+    params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
 end
