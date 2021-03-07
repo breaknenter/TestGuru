@@ -1,9 +1,7 @@
-<% unless logged_in? %>
+<% unless user_signed_in? %>
   <h2>Добро пожаловать в TestGuru</h2>
 <% else %>
   <h1>Тесты</h1>
-
-  <%= link_to "Новый тест", new_test_path %>
 
   <% if @tests.present? %>
     <table>
@@ -11,7 +9,7 @@
         <th>Название</th>
         <th>Уровень</th>
         <th>Вопросов</th>
-        <th colspan="3">Действия</th>
+        <th colspan="4">Действия</th>
       </tr>
 
       <%= render @tests %>

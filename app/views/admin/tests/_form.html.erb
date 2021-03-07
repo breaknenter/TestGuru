@@ -1,0 +1,30 @@
+<%= form_with model: [:admin, @test], local: true do |form| %>
+  <%= render "shared/errors", resource: @test %>
+
+  <table>
+    <tr>
+      <td><%= form.label :title, "Название" %></td>
+    </tr>
+    <tr>
+      <td><%= form.text_field :title, id: :test_title %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :level, "Уровень" %></td>
+    </tr>
+    <tr>
+      <td><%= form.number_field :level, id: :test_level %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.label :category_id, "Категория" %></td>
+    </tr>
+    <tr>
+      <td><%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.submit "Сохранить" %></td>
+    </tr>
+  </table>
+<% end %>

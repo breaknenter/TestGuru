@@ -1,0 +1,20 @@
+<%= form_with model: [:admin, @test, @question], local: true do |form| %>
+  <h1>
+    <%= question_header(@question) %>
+  </h1>
+  <%= render "shared/errors", resource: @question %>
+
+  <table>
+    <tr>
+      <td><%= form.label :text, "Текст" %></td>
+    </tr>
+    <tr>
+      <td><%= form.text_field :text, id: :question_text %></td>
+    </tr>
+
+    <tr>
+      <td><%= form.submit "Создать" %></td>
+    </tr>
+  </table>
+  <%= link_to "Назад", admin_test_questions_path(@question.test) %>
+<% end %>

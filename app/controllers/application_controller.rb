@@ -1,28 +1,32 @@
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :null_session
+
   before_action :authenticate_user!
+  before_action :devise_params, if: :devise_controller?
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-  helper_method :current_user, :logged_in?
+  def record_not_found
+    render file: "#{Rails.root}/public/404.html", status: 404
+  end
 
-  private
+  protected
 
-  def authenticate_user!
-    unless current_user
-      cookies[:ref_url] = request.url
-      redirect_to login_path, alert: "Войдите или зарегистрируйтесь"
+  def devise_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email first_name last_name password])
+  end
+
+  def after_sign_in_path_for(resource)
+    if current_user.is_a?(Admin)
+      admin_tests_path
+    else
+      flash[:notice] = "Добро пожаловать в TestGuru, #{current_user.first_name}!" if first_login?
+
+      tests_path
     end
   end
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
-  end
-
-  def logged_in?
-    !!current_user
-  end
-
-  def record_not_found
-    render file: "#{Rails.root}/public/404.html", status: 404
+  def first_login?
+    current_user.sign_in_count == 1
   end
 end

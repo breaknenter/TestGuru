@@ -15,16 +15,18 @@
     <h1><%= link_to "TestGuru", root_path %></h1>
 
     <nav>
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <span>Привет, <%= current_user.name %> |
-              <%= link_to "выйти", logout_path, method: :delete %></span>
+              <%= link_to "выйти", destroy_user_session_path, method: :delete %></span>
       <% else %>
-        <span>Привет, гость: <%= link_to "вход", login_path %> |
-              <%= link_to "регистрация", signup_path %> |
+        <span>Привет, гость: <%= link_to "вход", new_user_session_path %> |
+              <%= link_to "регистрация", new_user_registration_path %> |
               <%= link_to "о TestGuru", "/about" %>
         </span>
       <% end %>
     </nav>
+
+    <%= render "shared/flash" %>
 
     <%= yield %>
 
