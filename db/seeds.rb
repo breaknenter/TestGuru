@@ -1,69 +1,89 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# Накатываем: rails db:reset
 
-user = User.create(name: "Sergey", email: "net@net.ru")
+admin = Admin.new(
+  name:                  "admin",
+  email:                 "mail@testguru.io",
+  password:              "qwertylove",
+  password_confirmation: "qwertylove",
+  first_name:            "Joe",
+  last_name:             "Shmoe"
+  )
 
-category = Category.create(title: "Слова")
+admin.skip_confirmation!
+admin.save!
 
-test = Test.create(title: "Словарный запас", level: 0, category_id: category.id, author_id: user.id)
+user = User.new(
+  name:                  "noname",
+  email:                 "noname@mail.to",
+  password:              "qwertylove",
+  password_confirmation: "qwertylove",
+  first_name:            "No",
+  last_name:             "Name"
+  )
 
-question = Question.create(text: "Коллизия", test_id: test.id)
+user.skip_confirmation!
+user.save!
 
-Answer.create(text: "Проблема", correct: false, question_id: question.id)
-Answer.create(text: "Искажение", correct: false, question_id: question.id)
-Answer.create(text: "Обман", correct: false, question_id: question.id)
-Answer.create(text: "Противостояние", correct: true, question_id: question.id)
+dictionaries = Category.create(title: "Словари")
 
-question = Question.create(text: "Меркантильный", test_id: test.id)
+test = dictionaries.tests.create!(
+  title:  "Словарный запас",
+  level:  1,
+  author: admin
+  )
 
-Answer.create(text: "Корыстный", correct: true, question_id: question.id)
-Answer.create(text: "Безответственный", correct: false, question_id: question.id)
-Answer.create(text: "Бездушный", correct: false, question_id: question.id)
-Answer.create(text: "Экономный", correct: false, question_id: question.id)
+test.questions.create!(text: "Коллизия").answers.create!(
+  [ { text: "Противостояние", correct: true  },
+    { text: "Проблема",       correct: false },
+    { text: "Искажение",      correct: false },
+    { text: "Обман",          correct: false } ].shuffle!
+  )
 
-question = Question.create(text: "Претенциозный", test_id: test.id)
+test.questions.create!(text: "Меркантильный").answers.create!(
+  [ { text: "Корыстный",        correct: true  },
+    { text: "Безответственный", correct: false },
+    { text: "Бездушный",        correct: false },
+    { text: "Экономный",        correct: false } ].shuffle!
+  )
 
-Answer.create(text: "Амбициозный", correct: true, question_id: question.id)
-Answer.create(text: "Своенравный", correct: false, question_id: question.id)
-Answer.create(text: "Наглый", correct: false, question_id: question.id)
-Answer.create(text: "Вычурный", correct: false, question_id: question.id)
+test.questions.create!(text: "Претенциозный").answers.create!(
+  [ { text: "Амбициозный", correct: true  },
+    { text: "Своенравный", correct: false },
+    { text: "Наглый",      correct: false },
+    { text: "Вычурный",    correct: false } ].shuffle!
+  )
 
-question = Question.create(text: "Невежа", test_id: test.id)
+test.questions.create!(text: "Невежа").answers.create!(
+  [ { text: "Неуч",     correct: true  },
+    { text: "Обманщик", correct: false },
+    { text: "Задира",   correct: false },
+    { text: "Грубиян",  correct: false } ].shuffle!
+  )
 
-Answer.create(text: "Обманщик", correct: false, question_id: question.id)
-Answer.create(text: "Задира", correct: false, question_id: question.id)
-Answer.create(text: "Грубиян", correct: false, question_id: question.id)
-Answer.create(text: "Неуч", correct: true, question_id: question.id)
+test.questions.create!(text: "Нонсенс").answers.create!(
+  [ { text: "Сенсация",    correct: true  },
+    { text: "Премьера",    correct: false },
+    { text: "Новинка",     correct: false },
+    { text: "Бессмыслица", correct: false } ].shuffle!
+  )
 
-question = Question.create(text: "Нонсенс", test_id: test.id)
+test.questions.create!(text: "Конъюктура").answers.create!(
+  [ { text: "Обстановка",     correct: true  },
+    { text: "Обстоятельство", correct: false },
+    { text: "Акупунктура",    correct: false },
+    { text: "Чиновничество",  correct: false } ].shuffle!
+  )
 
-Answer.create(text: "Премьера", correct: false, question_id: question.id)
-Answer.create(text: "Новинка", correct: false, question_id: question.id)
-Answer.create(text: "Бессмыслица", correct: false, question_id: question.id)
-Answer.create(text: "Сенсация", correct: true, question_id: question.id)
+test.questions.create!(text: "Гипотеза").answers.create!(
+  [ { text: "Предположение", correct: true  },
+    { text: "Теория",        correct: false },
+    { text: "Постулат",      correct: false },
+    { text: "Аксиома",       correct: false } ].shuffle!
+  )
 
-question = Question.create(text: "Конъюктура", test_id: test.id)
-
-Answer.create(text: "Обстановка", correct: true, question_id: question.id)
-Answer.create(text: "Обстоятельство", correct: false, question_id: question.id)
-Answer.create(text: "Акупунктура", correct: false, question_id: question.id)
-Answer.create(text: "Чиновничество", correct: false, question_id: question.id)
-
-question = Question.create(text: "Гипотеза", test_id: test.id)
-
-Answer.create(text: "Предположение", correct: true, question_id: question.id)
-Answer.create(text: "Теория", correct: false, question_id: question.id)
-Answer.create(text: "Постулат", correct: false, question_id: question.id)
-Answer.create(text: "Аксиома", correct: false, question_id: question.id)
-
-question = Question.create(text: "Тривиальный", test_id: test.id)
-
-Answer.create(text: "Банальный", correct: true, question_id: question.id)
-Answer.create(text: "Запутанный", correct: false, question_id: question.id)
-Answer.create(text: "Незаурядный", correct: false, question_id: question.id)
-Answer.create(text: "Бессмысленный", correct: false, question_id: question.id)
+test.questions.create!(text: "Тривиальный").answers.create!(
+  [ { text: "Банальный",     correct: true  },
+    { text: "Запутанный",    correct: false },
+    { text: "Незаурядный",   correct: false },
+    { text: "Бессмысленный", correct: false } ].shuffle!
+  )

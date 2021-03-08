@@ -2,10 +2,5 @@
   <td><%= link_to test.title, test %></td>
   <td><%= test_level(test) %></td>
   <td><%= test.questions.count %></td>
-  <td><%= link_to "Изменить", edit_test_path(test) %></td>
-  <td><%= link_to "Удалить", test_path(test),
-                             method: :delete,
-                             data:   { confirm: "Грохнуть?" } %>
-  </td>
   <td><%= button_to "Старт", start_test_path(test) %></td>
 </tr>

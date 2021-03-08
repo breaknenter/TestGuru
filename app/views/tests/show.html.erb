@@ -14,12 +14,10 @@
 
 <% if @test.questions.count.nonzero? %>
   <% @test.questions.each do |question| %>
-    <p><%= link_to "#{question.text}", question %></p>
+    <p><%= question.text %></p>
   <% end %>
 <% else %>
   <p>Вопросов нет</p>
 <% end %>
 
-<%= link_to "Добавить вопрос", new_test_question_path(@test) %> |
-<%= link_to "Изменить", edit_test_path(@test) %> |
 <%= link_to "Назад", tests_path %>
