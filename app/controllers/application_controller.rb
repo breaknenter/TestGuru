@@ -17,16 +17,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if current_user.is_a?(Admin)
+    if current_user.admin?
       admin_tests_path
     else
-      flash[:notice] = "Добро пожаловать в TestGuru, #{current_user.first_name}!" if first_login?
+      flash[:notice] = "Добро пожаловать в TestGuru, #{current_user.first_name}!"
 
       tests_path
     end
-  end
-
-  def first_login?
-    current_user.sign_in_count == 1
   end
 end

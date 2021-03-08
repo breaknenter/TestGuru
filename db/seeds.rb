@@ -27,9 +27,9 @@ user.save!
 dictionaries = Category.create(title: "Словари")
 
 test = dictionaries.tests.create!(
-  title:    "Словарный запас",
-  level:    1,
-  author:   admin
+  title:  "Словарный запас",
+  level:  1,
+  author: admin
   )
 
 test.questions.create!(text: "Коллизия").answers.create!(
