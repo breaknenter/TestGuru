@@ -103,6 +103,9 @@ ru:
     back: "Назад"
     change: "Изменить"
     delete: "Удалить"
+    login: "вход"
+    signup: "регистрация"
+    about: "о TestGuru"
 
   misc:
     welcome: "Добро пожаловать в TestGuru, %{user_name}"

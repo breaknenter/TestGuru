@@ -101,6 +101,9 @@ en:
     back: "Back"
     change: "Edit"
     delete: "Delete"
+    login: "login"
+    signup: "signup"
+    about: "about"
 
   misc:
     welcome: "Welcome to TestGuru, %{user_name}"
