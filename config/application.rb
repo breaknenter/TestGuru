@@ -20,10 +20,9 @@ module TestGuru
     config.time_zone = "Yakutsk"
 
     # Язык:
-    I18n.available_locales = [:en, :ru]
+    I18n.available_locales = [:ru, :en]
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
-    # Поменять локаль обратно на :ru
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :ru
 
     # Кодировка:
     config.encoding = "utf-8"

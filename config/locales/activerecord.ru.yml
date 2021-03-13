@@ -1,0 +1,51 @@
+ru:
+  activerecord:
+    models:
+      category: "Категория"
+      test: "Тест"
+      question: "Вопрос"
+      answer: "Ответ"
+    attributes:
+      category:
+        title: "Название"
+      test:
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        author: "Автор"
+      question:
+        text: "Текст"
+        test: "Тест"
+      answer:
+        text: "Текст"
+        question: "Вопрос"
+
+    errors:
+      format: "%{message}"
+      models:
+        category:
+          attributes:
+            title:
+              blank: "Укажите категорию"
+              taken: "Категория %{value} уже существует"
+        test:
+          attributes:
+            title:
+              blank: "Укажите название теста"
+              taken: "Такой тест уже существует"
+            level:
+              blank: "Укажите уровень теста"
+              not_a_number: "Уровень теста должен быть задан числом"
+              greater_than_or_equal_to: "Уровень теста должен быть больше или равен %{count}"
+        question:
+          attributes:
+            text:
+              blank: "Укажите текст вопроса"
+            answers:
+              too_many_answers: "Вопрос может содержать не более %{count} ответов"
+        answer:
+          attributes:
+            text:
+              blank: "Укажите текст ответа"
+            correct:
+              inclusion: "Только True/False значение для атрибута correct"

@@ -1,0 +1,109 @@
+ru:
+  admin:
+    tests:
+      index:
+        header: "Тесты"
+        new_test: "Новый тест"
+        name: "Название"
+        level: "Уровень"
+        questions: "Вопросов"
+        actions: "Действия"
+        tests_not_found: "Тестов нет"
+        access_denied: "У вас нет прав"
+      new:
+        header: "Новый тест"
+      create:
+        success: "Тест создан"
+      edit:
+        header: "Редактировать тест"
+      update:
+        update: "Тест обновлён"
+
+  tests:
+    index:
+      welcome: "Добро пожаловать в TestGuru"
+      header: "Тесты"
+      title: "Название"
+      level: "Уровень"
+      questions: "Вопросов"
+      actions: "Действия"
+      tests_not_found: "Тестов нет"
+    show:
+      header: "Название"
+      level: "Уровень"
+      questions: "Вопросы"
+      questions_not_found: "Вопросов нет"
+    test:
+      start: "Старт"
+
+  test_passages:
+    show:
+      header: "Тест:"
+      question: "Вопрос:"
+      out_of: "из"
+      next: "Далее"
+    result:
+      header: "Результаты теста:"
+      passed: "Тест пройден!"
+      failed: "Тест провален =/"
+      result: "Результат:"
+      rate: "Процент успеха:"
+      to_tests: "К списку тестов"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест!"
+
+  devise:
+    sessions:
+      new:
+        login: "Вход"
+    registrations:
+      new:
+        header: "Регистрация"
+        min_password_lenght: "минимальная длина: %{password_lenght} символов"
+        signup: "Зарегистрироваться"
+    shared:
+      links:
+        sign_up: "Регистрация"
+        login: "Войти"
+        forgot_password: "Забыли пароль?"
+        receive_confirmation: "Выслать подтверждение"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать тест"
+        update: "Обновить тест"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+      user:
+        email: "Почта"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        name: "Никнейм"
+        first_name: "Имя"
+        last_name: "Фамилия"
+        remember_me: "Запомнить?"
+    select:
+      prompt: "Выберите категорию"
+
+  shared:
+    errors:
+      message:
+        one: "У вас %{count} ошибка"
+        few: "У вас %{count} ошибки"
+        many: "У вас %{count} ошибок"
+        other: "У вас %{count} ошибки"
+
+  links:
+    back: "Назад"
+    change: "Изменить"
+    delete: "Удалить"
+
+  misc:
+    welcome: "Добро пожаловать в TestGuru, %{user_name}"
+    delete_confirm: "Удалить?"

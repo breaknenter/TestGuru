@@ -1,0 +1,51 @@
+en:
+  activerecord:
+    models:
+      category: "Category"
+      test: "Test"
+      question: "Question"
+      answer: "Answer"
+    attributes:
+      category:
+        title: "Title"
+      test:
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        author: "Author"
+      question:
+        text: "Text"
+        test: "Test"
+      answer:
+        text: "Text"
+        question: "Question"
+
+    errors:
+      format: "%{message}"
+      models:
+        category:
+          attributes:
+            title:
+              blank: "Select a category"
+              taken: "Category %{value} already exists "
+        test:
+          attributes:
+            title:
+              blank: "Specify the name of the test "
+              taken: "Such a test already exists "
+            level:
+              blank: "Set test level"
+              not_a_number: "The test level must be specified by a number "
+              greater_than_or_equal_to: "Test level must be greater than or equal to %{count}"
+        question:
+          attributes:
+            text:
+              blank: "Enter the text of the question"
+            answers:
+              too_many_answers: "The question can contain no more than %{count} answers"
+        answer:
+          attributes:
+            text:
+              blank: "Enter answer text"
+            correct:
+              inclusion: "Only True / False value for the correct attribute"

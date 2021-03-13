@@ -3,28 +3,28 @@
 
   <table>
     <tr>
-      <td><%= form.label :title, "Название" %></td>
+      <td><%= form.label :title %></td>
     </tr>
     <tr>
       <td><%= form.text_field :title, id: :test_title %></td>
     </tr>
 
     <tr>
-      <td><%= form.label :level, "Уровень" %></td>
+      <td><%= form.label :level %></td>
     </tr>
     <tr>
       <td><%= form.number_field :level, id: :test_level %></td>
     </tr>
 
     <tr>
-      <td><%= form.label :category_id, "Категория" %></td>
+      <td><%= form.label :category_id %></td>
     </tr>
     <tr>
       <td><%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %></td>
     </tr>
 
     <tr>
-      <td><%= form.submit "Сохранить" %></td>
+      <td><%= form.submit %></td>
     </tr>
   </table>
 <% end %>
