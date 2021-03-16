@@ -1,20 +1,20 @@
 <% unless user_signed_in? %>
-  <h2>Добро пожаловать в TestGuru</h2>
+  <h1><%= t(".welcome") %></h1>
 <% else %>
-  <h1>Тесты</h1>
+  <h1><%= t(".header") %></h1>
 
   <% if @tests.present? %>
     <table>
       <tr>
-        <th>Название</th>
-        <th>Уровень</th>
-        <th>Вопросов</th>
-        <th colspan="4">Действия</th>
+        <th><%= t(".title") %></th>
+        <th><%= t(".level") %></th>
+        <th><%= t(".questions") %></th>
+        <th colspan="4"><%= t(".actions") %></th>
       </tr>
 
       <%= render @tests %>
     </table>
   <% else %>
-    <p>Тестов нет</p>
+    <p><%= t(".tests_not_found") %></p>
   <% end %>
 <% end %>

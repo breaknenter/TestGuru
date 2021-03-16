@@ -19,9 +19,9 @@
         <span>Привет, <%= current_user.name %> |
               <%= link_to "выйти", destroy_user_session_path, method: :delete %></span>
       <% else %>
-        <span>Привет, гость: <%= link_to "вход", new_user_session_path %> |
-              <%= link_to "регистрация", new_user_registration_path %> |
-              <%= link_to "о TestGuru", "/about" %>
+        <span>Привет, гость: <%= link_to t("links.login"), new_user_session_path %> |
+              <%= link_to t("links.signup"), new_user_registration_path %> |
+              <%= link_to t("links.about"), "/about" %>
         </span>
       <% end %>
     </nav>

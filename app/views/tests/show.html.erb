@@ -1,15 +1,15 @@
 <p>
-  <strong>Название:</strong>
+  <strong><%= t(".header") %></strong>
   <%= @test.title %>
 </p>
 
 <p>
-  <strong>Уровень:</strong>
+  <strong><%= t(".level") %></strong>
   <%= @test.level %>
 </p>
 
 <p>
-  <strong>Вопросы:</strong>
+  <strong><%= t(".questions") %></strong>
 </p>
 
 <% if @test.questions.count.nonzero? %>
@@ -17,7 +17,7 @@
     <p><%= question.text %></p>
   <% end %>
 <% else %>
-  <p>Вопросов нет</p>
+  <p><%= t(".questions_not_found") %></p>
 <% end %>
 
-<%= link_to "Назад", tests_path %>
+<%= link_to t("links.back"), tests_path %>

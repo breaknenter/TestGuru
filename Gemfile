@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Auth
 gem 'devise', '~> 4.0'
 
+# Localization
+gem 'rails-i18n', '~> 6.0.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

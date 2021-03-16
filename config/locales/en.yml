@@ -1,33 +1,110 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  admin:
+    tests:
+      index:
+        header: "Tests"
+        new_test: "Create Test"
+        name: "Title"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+        tests_not_found: "Tests not found"
+        access_denied: "You have no rights"
+      new:
+        header: "New Test"
+      create:
+        success: "Test created"
+      edit:
+        header: "Edit Test"
+      update:
+        update: "Test updated"
+
+  tests:
+    index:
+      welcome: "Welcome to TestGuru"
+      header: "Tests"
+      title: "Title"
+      level: "Level"
+      questions: "Questions"
+      actions: "Actions"
+      tests_not_found: "Tests not found"
+    show:
+      header: "Title"
+      level: "Level"
+      questions: "Questions"
+      questions_not_found: "Questions not found"
+    test:
+      start: "Start"
+
+  test_passages:
+    show:
+      header: "Test:"
+      question: "Question:"
+      out_of: "from"
+      next: "Next"
+    result:
+      header: "Test results:"
+      passed: "Test passed!"
+      failed: "Test failed =/"
+      result: "Result:"
+      rate: "Success rate:"
+      to_tests: "To the list of Tests "
+
+  tests_mailer:
+    completed_test:
+      subject: "You have completed the test successfully!"
+
+  devise:
+    sessions:
+      new:
+        login: "Login"
+    registrations:
+      new:
+        header: "Sign Up"
+        min_password_lenght: "minimum length: %{password_lenght} characters"
+        signup: "Sign Up"
+    shared:
+      links:
+        sign_up: "Sign Up"
+        login: "Login"
+        forgot_password: "Forgot your password?"
+        receive_confirmation: "Send confirmation "
+
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Save Test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+      user:
+        email: "E-Mail"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        name: "Nickname"
+        first_name: "First name"
+        last_name: "Last name"
+        remember_me: "Remember?"
+    select:
+      prompt: "Select a category"
+
+  shared:
+    errors:
+      message:
+        one: "You have a %{count} error"
+        other: "You have a %{count} errors"
+
+  links:
+    back: "Back"
+    change: "Edit"
+    delete: "Delete"
+    login: "login"
+    signup: "signup"
+    about: "about"
+
+  misc:
+    welcome: "Welcome to TestGuru, %{user_name}"
+    delete_confirm: "Delete?"

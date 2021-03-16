@@ -3,6 +3,7 @@ class TestsMailer < ApplicationMailer
     @user = test_passage.user
     @test = test_passage.test
 
-    mail to: @user.email, subject: "Вы успешно завершили тест!"
+    # subject: "Вы успешно завершили тест!" => lang.yml/tests_mailer.completed_test
+    mail to: @user.email
   end
 end
