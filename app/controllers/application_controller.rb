@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :devise_params, if: :devise_controller?
 
+  add_flash_types :success, :danger, :warning, :info
+
   def default_url_options
     { lang: (I18n.locale == I18n.default_locale ? nil : I18n.locale) }
   end

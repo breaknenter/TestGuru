@@ -58,6 +58,8 @@ en:
     sessions:
       new:
         login: "Login"
+        email: "Enter email"
+        password: "Enter password"
     registrations:
       new:
         header: "Sign Up"
@@ -87,7 +89,7 @@ en:
         name: "Nickname"
         first_name: "First name"
         last_name: "Last name"
-        remember_me: "Remember?"
+        remember_me: "Remember me"
     select:
       prompt: "Select a category"
 
@@ -104,6 +106,8 @@ en:
     login: "login"
     signup: "signup"
     about: "about"
+    panel: "panel"
+    exit: "quit"
 
   misc:
     welcome: "Welcome to TestGuru, %{user_name}"

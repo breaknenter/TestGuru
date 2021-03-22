@@ -58,6 +58,8 @@ ru:
     sessions:
       new:
         login: "Вход"
+        email: "Введите почту"
+        password: "Введите пароль"
     registrations:
       new:
         header: "Регистрация"
@@ -106,6 +108,8 @@ ru:
     login: "вход"
     signup: "регистрация"
     about: "о TestGuru"
+    panel: "панель"
+    exit: "выход"
 
   misc:
     welcome: "Добро пожаловать в TestGuru, %{user_name}"

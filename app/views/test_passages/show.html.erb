@@ -1,30 +1,34 @@
-<h1><%= t(".header") %> <%= @test_passage.test.title %></h1>
+<div class="row justify-content-center mt-8">
+  <div class="col col-md-8">
+    <h1><%= t(".header") %> <%= @test_passage.test.title %></h1>
 
-<p>
-  <small>
-  <%= t(".question") %> <%= @test_passage.current_question.id %> <%= t(".out_of") %>
-          <%= @test_passage.test.questions.count %>
-</small>
-</p>
-
-<strong>
-  <%= @test_passage.current_question.text %>
-</strong>
-
-<%= form_with url: test_passage_path(@test_passage),
-                   method: :put,
-                   local: true  do |form| %>
-
-  <%= form.collection_check_boxes :answer_ids,
-                                  @test_passage.current_question.answers,
-                                  :id, :text, include_hidden: false do |b| %>
     <p>
-      <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-      <%= b.label %>
+      <small>
+      <%= t(".question") %> <%= @test_passage.current_question.id %> <%= t(".out_of") %>
+              <%= @test_passage.test.questions.count %>
+    </small>
     </p>
-  <% end %>
 
-  <p>
-    <%= form.submit t(".next") %>
-  </p>
-<% end %>
+    <strong>
+      <%= @test_passage.current_question.text %>
+    </strong>
+
+    <%= form_with url: test_passage_path(@test_passage),
+                       method: :put,
+                       local: true  do |form| %>
+
+      <%= form.collection_check_boxes :answer_ids,
+                                      @test_passage.current_question.answers,
+                                      :id, :text, include_hidden: false do |b| %>
+        <p>
+          <%= b.check_box id: "answer_ids_#{b.object.id}" %>
+          <%= b.label %>
+        </p>
+      <% end %>
+
+      <p>
+        <%= form.submit t(".next"), class: "btn btn-dark btn-sm" %>
+      </p>
+    <% end %>
+  </div>
+</div>

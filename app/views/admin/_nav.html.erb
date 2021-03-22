@@ -1,8 +1,9 @@
-<div class="nav nav-admin">
-  <span class="nav-admin title">TestGuru Admin Panel</span>
-  
-  <div class="nav-admin user">
-    <b class="nav-admin user-email"><%= current_user.email %></b> |
-    <%= link_to "выйти", destroy_user_session_path, method: :delete %>
-  </div>
-</div>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to "TestGuru", root_path, class: "navbar-brand" %>
+
+  <span class="text-right">
+    <%= current_user.email %> |
+    <%= link_to t("links.panel"), admin_tests_path %> |
+    <%= link_to t("links.exit"), destroy_user_session_path, method: :delete %>
+  </span>
+</nav>
