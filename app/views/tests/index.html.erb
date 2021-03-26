@@ -1,20 +1,20 @@
-<% unless user_signed_in? %>
-  <h1><%= t(".welcome") %></h1>
-<% else %>
-  <h1><%= t(".header") %></h1>
-
-  <% if @tests.present? %>
-    <table>
-      <tr>
-        <th><%= t(".title") %></th>
-        <th><%= t(".level") %></th>
-        <th><%= t(".questions") %></th>
-        <th colspan="4"><%= t(".actions") %></th>
-      </tr>
-
-      <%= render @tests %>
-    </table>
+<div class="row justify-content-center mt-4">
+  <% unless user_signed_in? %>
+    <h1><%= t(".welcome") %></h1>
   <% else %>
-    <p><%= t(".tests_not_found") %></p>
+    <% if @tests.present? %>
+      <table>
+        <tr>
+          <th class="col-sm-3"><%= t(".title") %></th>
+          <th class="col-sm-3"><%= t(".level") %></th>
+          <th class="col-sm-3"><%= t(".questions") %></th>
+          <th class="col-sm-3" colspan="4"><%= t(".actions") %></th>
+        </tr>
+
+        <%= render @tests %>
+      </table>
+    <% else %>
+      <p><%= t(".tests_not_found") %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>
