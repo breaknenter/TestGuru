@@ -1,0 +1,5 @@
+<tr>
+  <td class="col-sm-4"><%= link_to gist.question.text.first(25), admin_question_path(gist.question) %></td>
+  <td class="col-sm-4"><%= link_to gist.url.last(32), gist.url %></td>
+  <td class="col-sm-4"><%= gist.user.email %></td>
+</tr>

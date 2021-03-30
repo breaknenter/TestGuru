@@ -19,6 +19,14 @@ ru:
       update:
         update: "Тест обновлён"
 
+    gists:
+      index:
+        header: "Gists"
+        question: "Вопрос"
+        url: "Ссылка"
+        email: "E-mail"
+        gists_not_found: "Нет сохранённых вопросов"
+
   tests:
     index:
       welcome: "Добро пожаловать в TestGuru"
@@ -42,6 +50,7 @@ ru:
       question: "Вопрос:"
       out_of: "из"
       next: "Далее"
+      gist: "Добавить вопрос в Gist"
     result:
       header: "Результаты теста:"
       passed: "Тест пройден!"
@@ -49,6 +58,12 @@ ru:
       result: "Результат:"
       rate: "Процент успеха:"
       to_tests: "К списку тестов"
+    gist:
+      success: "Вопрос сохранён:"
+      fail: "Ошибка сохранения вопроса"
+
+  gist:
+    title: "Вопрос из теста: `%{title}`"
 
   tests_mailer:
     completed_test:
@@ -109,6 +124,7 @@ ru:
     signup: "регистрация"
     about: "о TestGuru"
     panel: "панель"
+    gists: "gists"
     exit: "выход"
 
   misc:

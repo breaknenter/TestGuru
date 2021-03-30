@@ -4,6 +4,7 @@
   <span class="text-right">
     <%= current_user.email %> |
     <%= link_to t("links.panel"), admin_tests_path %> |
+    <%= link_to t("links.gists"), admin_gists_path %> |
     <%= link_to t("links.exit"), destroy_user_session_path, method: :delete %>
   </span>
 </nav>
