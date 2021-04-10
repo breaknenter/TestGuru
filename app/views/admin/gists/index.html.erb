@@ -1,0 +1,17 @@
+<div class="row justify-content-center mt-4">
+  <h1><%= t(".header") %></h1>
+
+  <% if @gists.present? %>
+    <table>
+      <tr>
+        <th class="col-sm-4"><%= t(".question") %></th>
+        <th class="col-sm-4"><%= t(".url") %></th>
+        <th class="col-sm-4"><%= t(".email") %></th>
+      </tr>
+
+      <%= render @gists %>
+    </table>
+  <% else %>
+    <p><%= t(".gists_not_found") %></p>
+  <% end %>
+</div>

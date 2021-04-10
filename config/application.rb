@@ -16,6 +16,9 @@ module TestGuru
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
+    # Автозагрузка (только файлы, без вложенных директорий)
+    config.autoload_paths << "#{Rails.root}/lib/clients"
+
     # Часовой пояс:
     config.time_zone = "Yakutsk"
 

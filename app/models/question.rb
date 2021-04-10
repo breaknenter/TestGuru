@@ -3,6 +3,7 @@ class Question < ApplicationRecord
 
   belongs_to :test
   has_many   :answers, dependent: :destroy
+  has_many   :gists,   dependent: :destroy
 
   validate :number_of_answers
 

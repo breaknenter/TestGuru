@@ -19,6 +19,14 @@ en:
       update:
         update: "Test updated"
 
+    gists:
+      index:
+        header: "Gists"
+        question: "Question"
+        url: "Link"
+        email: "E-mail"
+        gists_not_found: "Questions not found"
+
   tests:
     index:
       welcome: "Welcome to TestGuru"
@@ -42,6 +50,7 @@ en:
       question: "Question:"
       out_of: "from"
       next: "Next"
+      gist: "Gist Question"
     result:
       header: "Test results:"
       passed: "Test passed!"
@@ -49,6 +58,12 @@ en:
       result: "Result:"
       rate: "Success rate:"
       to_tests: "To the list of Tests "
+    gist:
+      success: "Question saved:"
+      fail: "Error saving question"
+
+  gist:
+    title: "A question from test: `%{title}`"
 
   tests_mailer:
     completed_test:
@@ -107,6 +122,7 @@ en:
     signup: "signup"
     about: "about"
     panel: "panel"
+    gists: "gists"
     exit: "quit"
 
   misc:
