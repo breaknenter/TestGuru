@@ -3,9 +3,13 @@
     <h1><%= t(".welcome") %></h1>
   <% else %>
     <% if @tests.present? %>
-      <table>
+      <table class="table">
         <tr>
-          <th class="col-sm-3"><%= t(".title") %></th>
+          <th class="col-sm-3 sort-by-title pointer">
+            <%= t(".title") %>
+            <%= octicon "triangle-up", class: "hide" %>
+            <%= octicon "triangle-down", class: "hide" %>
+          </th>
           <th class="col-sm-3"><%= t(".level") %></th>
           <th class="col-sm-3"><%= t(".questions") %></th>
           <th class="col-sm-3" colspan="4"><%= t(".actions") %></th>

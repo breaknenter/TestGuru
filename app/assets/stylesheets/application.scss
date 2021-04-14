@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "global";
+@import "typography/icons";
 
 .alert-notice {
   @extend .alert-info;

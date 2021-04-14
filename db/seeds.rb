@@ -87,3 +87,23 @@ test.questions.create!(text: "Тривиальный").answers.create!(
     { text: "Незаурядный",   correct: false },
     { text: "Бессмысленный", correct: false } ].shuffle!
   )
+
+web_dev = Category.create(title: "Web-разработка")
+
+web_dev.tests.create!(
+  title:  "HTML",
+  level:  1,
+  author: admin
+  )
+
+web_dev.tests.create!(
+  title:  "CSS",
+  level:  2,
+  author: admin
+  )
+
+web_dev.tests.create!(
+  title:  "JS",
+  level:  3,
+  author: admin
+  )
