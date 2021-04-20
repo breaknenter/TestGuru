@@ -18,6 +18,8 @@ ru:
         header: "Редактировать тест"
       update:
         update: "Тест обновлён"
+      form_inline:
+        submit: "Ок"
 
     gists:
       index:
@@ -119,6 +121,7 @@ ru:
   links:
     back: "Назад"
     change: "Изменить"
+    cancel: "Отмена"
     delete: "Удалить"
     login: "вход"
     signup: "регистрация"

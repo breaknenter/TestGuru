@@ -39,6 +39,9 @@ gem 'faraday'
 # Octokit: Ruby toolkit for the GitHub API
 gem 'octokit', '~> 4.0'
 
+#  It's a small library to provide the Rails I18n translations on the JavaScript
+gem 'i18n-js'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
