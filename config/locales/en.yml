@@ -18,6 +18,8 @@ en:
         header: "Edit Test"
       update:
         update: "Test updated"
+      form_inline:
+        submit: "Ок"
 
     gists:
       index:
@@ -117,6 +119,7 @@ en:
   links:
     back: "Back"
     change: "Edit"
+    cancel: "Cancel"
     delete: "Delete"
     login: "login"
     signup: "signup"
