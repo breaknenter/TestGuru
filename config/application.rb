@@ -29,5 +29,8 @@ module TestGuru
 
     # Кодировка:
     config.encoding = "utf-8"
+
+    # Assets
+    config.assets.initialize_on_precompile = true
   end
 end
