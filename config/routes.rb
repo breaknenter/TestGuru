@@ -29,4 +29,6 @@ Rails.application.routes.draw do
 
     get "/gists", to: "gists#index"
   end
+
+  resource :contacts, only: %i[show create]
 end
