@@ -87,3 +87,39 @@ test.questions.create!(text: "Тривиальный").answers.create!(
     { text: "Незаурядный",   correct: false },
     { text: "Бессмысленный", correct: false } ].shuffle!
   )
+
+web_dev = Category.create(title: "Веб-разработка")
+
+test = web_dev.tests.create!(
+  title:  "HTML",
+  level:  1,
+  author: admin
+  )
+
+test.questions.create!(text: "Укажите тег позволяющий определить таблицу").answers.create!(
+  [ { text: "<table>",     correct: true  },
+    { text: "<tab>",    correct: false },
+    { text: "<tr>",   correct: false },
+    { text: "<tabs>", correct: false } ].shuffle!
+  )
+
+test.questions.create!(text: "Какой тег позволяет вставлять картинки в HTML документы?").answers.create!(
+  [ { text: "<img>",     correct: true  },
+    { text: "<pic>",    correct: false },
+    { text: "<picture>",   correct: false },
+    { text: "<image>", correct: false } ].shuffle!
+  )
+
+test.questions.create!(text: "Укажите тэг позволяющий создавать заголовки").answers.create!(
+  [ { text: "<h2>",     correct: true  },
+    { text: "<strong>",    correct: false },
+    { text: "<small>",   correct: false },
+    { text: "<em>", correct: false } ].shuffle!
+  )
+
+test.questions.create!(text: "Укажите тег позволяющий определить упорядоченный список").answers.create!(
+  [ { text: "<ol>",     correct: true  },
+    { text: "<li>",    correct: false },
+    { text: "<ul>",   correct: false },
+    { text: "<list>", correct: false } ].shuffle!
+  )

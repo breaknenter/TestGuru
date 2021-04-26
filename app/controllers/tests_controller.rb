@@ -7,8 +7,14 @@ class TestsController < ApplicationController
   end
 
   def start
-    current_user.tests.push(@test)
-    redirect_to @current_user.test_passage(@test)
+    if @test.questions.count.zero?
+      redirect_to tests_path, notice: "Тест \'#{@test.title}\' пуст"
+    else
+      session[:question_number] = 1
+      current_user.tests.push(@test)
+
+      redirect_to @current_user.test_passage(@test)
+    end
   end
 
   def show
