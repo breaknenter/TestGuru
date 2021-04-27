@@ -2,6 +2,7 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result gist]
 
   def show
+    set_question_number
   end
 
   def result
@@ -11,13 +12,12 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      session.delete(:question_number)
-
       TestsMailer.completed_test(@test_passage).deliver_now
 
       redirect_to result_test_passage_path(@test_passage)
     else
-      session[:question_number] += 1
+      set_question_number
+
       render :show
     end
   end
@@ -42,5 +42,9 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def set_question_number
+    @question_number = @test_passage.test_question_index
   end
 end

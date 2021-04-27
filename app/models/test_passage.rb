@@ -27,6 +27,10 @@ class TestPassage < ApplicationRecord
     ((correct_questions / test.questions.count.to_f) * 100).to_i
   end
 
+  def test_question_index
+    test.questions.index(current_question) + 1
+  end
+
   private
 
   def before_validation_set_first_question

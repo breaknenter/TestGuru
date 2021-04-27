@@ -4,7 +4,7 @@
 
     <p>
       <small>
-        <%= t(".question") %> <%= session[:question_number] %>
+        <%= t(".question") %> <%= @question_number %>
         <%= t(".out_of") %>
         <%= @test_passage.test.questions.count %>
       </small>
@@ -12,7 +12,7 @@
 
     <div>
       <%= tag.progress id: "test-progress",
-                       data: { current_val: session[:question_number],
+                       data: { current_val: @question_number,
                                total: @test_passage.test.questions.count } %>
     </div>
 
