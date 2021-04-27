@@ -2,7 +2,6 @@ class TestPassagesController < ApplicationController
   before_action :set_test_passage, only: %i[show update result gist]
 
   def show
-    set_question_number
   end
 
   def result
@@ -16,8 +15,6 @@ class TestPassagesController < ApplicationController
 
       redirect_to result_test_passage_path(@test_passage)
     else
-      set_question_number
-
       render :show
     end
   end

@@ -4,16 +4,16 @@
 
     <p>
       <small>
-        <%= t(".question") %> <%= @question_number %>
+        <%= t(".question") %> <%= @test_passage.question_number %>
         <%= t(".out_of") %>
-        <%= @test_passage.test.questions.count %>
+        <%= @test_passage.questions_count %>
       </small>
     </p>
 
     <div>
       <%= tag.progress id: "test-progress",
-                       data: { current_val: @question_number,
-                               total: @test_passage.test.questions.count } %>
+                       data: { current_val: @test_passage.question_number,
+                               total: @test_passage.questions_count } %>
     </div>
 
     <strong>
