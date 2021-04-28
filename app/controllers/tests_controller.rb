@@ -1,14 +1,19 @@
 class TestsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  before_action :find_test, only: %i[start show]
+  before_action      :find_test,          only: %i[start show]
 
   def index
     @tests = Test.all
   end
 
   def start
-    current_user.tests.push(@test)
-    redirect_to @current_user.test_passage(@test)
+    if @test.questions.empty?
+      redirect_to tests_path, notice: "Тест \'#{@test.title}\' пуст"
+    else
+      current_user.tests.push(@test)
+
+      redirect_to @current_user.test_passage(@test)
+    end
   end
 
   def show

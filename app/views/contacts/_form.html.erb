@@ -1,0 +1,20 @@
+<%= form_with scope: :contact, url: contacts_path, method: :post, local: true do |form| %>
+  <div class="form-group">
+    <p>
+      <%= form.label :email, t(".email") %><br>
+      <%= form.email_field :email %><br>
+    </p>
+
+    <p>
+      <%= form.label :title, t(".title") %><br>
+      <%= form.text_field :title, autofocus: true %><br>
+    </p>
+
+    <p>
+      <%= form.label :text, t(".text") %><br/>
+      <%= form.text_area :text, size: "32x10" %><br>
+    </p>
+
+    <p><%= form.submit t(".send") %></p>
+  </div>
+<% end %>

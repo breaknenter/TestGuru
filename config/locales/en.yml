@@ -127,6 +127,21 @@ en:
     panel: "panel"
     gists: "gists"
     exit: "quit"
+    contacts: "contacts"
+
+  contacts:
+    show:
+      header: "Contacts"
+
+    create:
+      success: "Email sent"
+      fail: "Send error"
+
+    form:
+      email: "Email"
+      title: "Title"
+      text:  "Text"
+      send:  "Send"
 
   misc:
     welcome: "Welcome to TestGuru, %{user_name}"

@@ -129,6 +129,21 @@ ru:
     panel: "панель"
     gists: "gists"
     exit: "выход"
+    contacts: "контакты"
+
+  contacts:
+    show:
+      header: "Контакты"
+
+    create:
+      success: "Письмо отправлено"
+      fail: "Ошибка отправки"
+
+    form:
+      email: "Email"
+      title: "Тема"
+      text:  "Текст"
+      send:  "Отправить"
 
   misc:
     welcome: "Добро пожаловать в TestGuru, %{user_name}"

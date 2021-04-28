@@ -2,9 +2,9 @@
 
 admin = Admin.new(
   name:                  "admin",
-  email:                 "mail@testguru.io",
-  password:              "qwertylove",
-  password_confirmation: "qwertylove",
+  email:                 "testgururails@gmail.com",
+  password:              Rails.application.credentials.admin_password!,
+  password_confirmation: Rails.application.credentials.admin_password!,
   first_name:            "Joe",
   last_name:             "Shmoe"
   )
@@ -24,9 +24,9 @@ user = User.new(
 user.skip_confirmation!
 user.save!
 
-dictionaries = Category.create(title: "Словари")
+dicts = Category.create(title: "Словари")
 
-test = dictionaries.tests.create!(
+test = dicts.tests.create!(
   title:  "Словарный запас",
   level:  1,
   author: admin
@@ -88,22 +88,38 @@ test.questions.create!(text: "Тривиальный").answers.create!(
     { text: "Бессмысленный", correct: false } ].shuffle!
   )
 
-web_dev = Category.create(title: "Web-разработка")
+web_dev = Category.create(title: "Веб-разработка")
 
-web_dev.tests.create!(
+test = web_dev.tests.create!(
   title:  "HTML",
   level:  1,
   author: admin
   )
 
-web_dev.tests.create!(
-  title:  "CSS",
-  level:  2,
-  author: admin
+test.questions.create!(text: "Укажите тег позволяющий определить таблицу").answers.create!(
+  [ { text: "<table>",     correct: true  },
+    { text: "<tab>",    correct: false },
+    { text: "<tr>",   correct: false },
+    { text: "<tabs>", correct: false } ].shuffle!
   )
 
-web_dev.tests.create!(
-  title:  "JS",
-  level:  3,
-  author: admin
+test.questions.create!(text: "Какой тег позволяет вставлять картинки в HTML документы?").answers.create!(
+  [ { text: "<img>",     correct: true  },
+    { text: "<pic>",    correct: false },
+    { text: "<picture>",   correct: false },
+    { text: "<image>", correct: false } ].shuffle!
+  )
+
+test.questions.create!(text: "Укажите тэг позволяющий создавать заголовки").answers.create!(
+  [ { text: "<h2>",     correct: true  },
+    { text: "<strong>",    correct: false },
+    { text: "<small>",   correct: false },
+    { text: "<em>", correct: false } ].shuffle!
+  )
+
+test.questions.create!(text: "Укажите тег позволяющий определить упорядоченный список").answers.create!(
+  [ { text: "<ol>",     correct: true  },
+    { text: "<li>",    correct: false },
+    { text: "<ul>",   correct: false },
+    { text: "<list>", correct: false } ].shuffle!
   )
