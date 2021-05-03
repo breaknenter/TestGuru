@@ -1,0 +1,21 @@
+<h1><%= t(".title") %></h1>
+
+<%= link_to t("links.back"), tests_path %>
+
+<% if @badges.empty? %>
+  <p><%= t(".badges_not_found") %></p>
+<% else %>
+  <table class="table">
+    <%= render @badges %>
+  </table>
+<% end %>
+
+<h2><%= t(".all_badges") %></h2>
+
+<% if @all_badges.empty? %>
+  <p><%= t(".all_badges_not_found") %></p>
+<% else %>
+  <table class="table">
+    <%= render @all_badges %>
+  </table>
+<% end %>

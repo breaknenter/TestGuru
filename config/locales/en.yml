@@ -21,6 +21,29 @@ en:
       form_inline:
         submit: "Ок"
 
+    badges:
+      index:
+        header: "Badges"
+        new_badge: "New badge"
+        badges_not_found: "Badges not found"
+
+      create:
+        success: "Badge add"
+
+      new:
+        header: "New badge"
+
+      edit:
+        header: "Change: %{name}"
+
+      show:
+
+      update:
+        update: "Update"
+
+      destroy:
+        update: "Badge %{name} delete"
+
     gists:
       index:
         header: "Gists"
@@ -60,6 +83,9 @@ en:
       result: "Result:"
       rate: "Success rate:"
       to_tests: "To the list of Tests "
+      award:
+        one: "Reward: %{count}"
+        few: "Rewards %{count}"
     gist:
       success: "Question saved:"
       fail: "Error saving question"
@@ -107,6 +133,9 @@ en:
         first_name: "First name"
         last_name: "Last name"
         remember_me: "Remember me"
+      badge:
+        name: "Name"
+        image: "Image"
     select:
       prompt: "Select a category"
 
@@ -128,6 +157,14 @@ en:
     gists: "gists"
     exit: "quit"
     contacts: "contacts"
+    badges: "badges"
+
+  badges:
+    show:
+      title: "Badges"
+      all_badges: "All badges"
+      badges_not_found: "Badges not found"
+      all_badges_not_found: "Badges not found"
 
   contacts:
     show:

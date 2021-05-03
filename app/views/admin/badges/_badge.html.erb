@@ -1,0 +1,16 @@
+<tr>
+  <td class="align-middle">
+    <figure>
+      <%= image_tag "badges/#{badge.reward}.png" %>
+      <figcaption><%= badge.name %></figcaption>
+    </figure>
+  </td>
+  <td class="align-middle">
+    <%= link_to t("links.change"), edit_admin_badge_path(badge) %>
+  </td>
+  <td class="align-middle"><%= link_to t("links.delete"),
+                                       admin_badge_path(badge),
+                                       method: :delete,
+                                       data: { confirm: t("misc.delete_confirm") } %>
+  </td>
+</tr>

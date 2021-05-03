@@ -1,0 +1,11 @@
+<h1><%= t(".header") %></h1>
+
+<%= link_to t(".new_badge"), new_admin_badge_path %>
+
+<%= render "shared/errors", resource: @test %>
+
+<% if @badges.present? %>
+  <%= render @badges %>
+<% else %>
+  <p><%= t(".badges_not_found") %></p>
+<% end %>

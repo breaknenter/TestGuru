@@ -24,7 +24,7 @@ user = User.new(
 user.skip_confirmation!
 user.save!
 
-dicts = Category.create(title: "Словари")
+dicts = Category.create!(title: "Словари")
 
 test = dicts.tests.create!(
   title:  "Словарный запас",
@@ -97,29 +97,60 @@ test = web_dev.tests.create!(
   )
 
 test.questions.create!(text: "Укажите тег позволяющий определить таблицу").answers.create!(
-  [ { text: "<table>",     correct: true  },
-    { text: "<tab>",    correct: false },
-    { text: "<tr>",   correct: false },
-    { text: "<tabs>", correct: false } ].shuffle!
+  [ { text: "<table>", correct: true  },
+    { text: "<tab>",   correct: false },
+    { text: "<tr>",    correct: false },
+    { text: "<tabs>",  correct: false } ].shuffle!
   )
 
 test.questions.create!(text: "Какой тег позволяет вставлять картинки в HTML документы?").answers.create!(
   [ { text: "<img>",     correct: true  },
-    { text: "<pic>",    correct: false },
-    { text: "<picture>",   correct: false },
-    { text: "<image>", correct: false } ].shuffle!
+    { text: "<pic>",     correct: false },
+    { text: "<picture>", correct: false },
+    { text: "<image>",   correct: false } ].shuffle!
   )
 
 test.questions.create!(text: "Укажите тэг позволяющий создавать заголовки").answers.create!(
   [ { text: "<h2>",     correct: true  },
-    { text: "<strong>",    correct: false },
-    { text: "<small>",   correct: false },
-    { text: "<em>", correct: false } ].shuffle!
+    { text: "<strong>", correct: false },
+    { text: "<small>",  correct: false },
+    { text: "<em>",     correct: false } ].shuffle!
   )
 
 test.questions.create!(text: "Укажите тег позволяющий определить упорядоченный список").answers.create!(
-  [ { text: "<ol>",     correct: true  },
-    { text: "<li>",    correct: false },
+  [ { text: "<ol>",   correct: true  },
+    { text: "<li>",   correct: false },
     { text: "<ul>",   correct: false },
     { text: "<list>", correct: false } ].shuffle!
   )
+
+test = web_dev.tests.create!(
+  title:  "CSS",
+  level:  1,
+  author: admin
+  )
+
+test.questions.create!(text: "Вопрос 1").answers.create!(
+  [ { text: "Верный", correct: true  },
+    { text: "Ложный", correct: false },
+    { text: "Ложный", correct: false },
+    { text: "Ложный", correct: false } ]
+  )
+
+test.questions.create!(text: "Вопрос 2").answers.create!(
+  [ { text: "Верный", correct: true  },
+    { text: "Ложный", correct: false },
+    { text: "Ложный", correct: false },
+    { text: "Ложный", correct: false } ]
+  )
+
+test.questions.create!(text: "Вопрос 3").answers.create!(
+  [ { text: "Верный", correct: true  },
+    { text: "Ложный", correct: false },
+    { text: "Ложный", correct: false },
+    { text: "Ложный", correct: false } ]
+  )
+
+Badge.create!(name: "Прошёл тест с первой попытки",    reward: "first_time")
+Badge.create!(name: "Прошёл все тесты 1 уровня",       reward: "all_level")
+Badge.create!(name: "Прошёл категорию Веб-разработка", reward: "category")
