@@ -4,9 +4,7 @@ class Badge < ApplicationRecord
   has_many :user_badges, dependent: :destroy
   has_many :users, through: :user_badges
 
-  scope :reward,  -> (name) { where(reward: name) }
-  scope :rewards, ->        { all.pluck(:reward) }
-
-  validates :name,   presence: true, uniqueness: { scope: :reward }
-  validates :reward, presence: true, uniqueness: true
+  validates :rule,   presence: true, uniqueness: { scope: %i[value reward] }
+  validates :value,  presence: true
+  validates :reward, presence: true, inclusion: { in: REWARDS }
 end

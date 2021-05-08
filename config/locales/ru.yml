@@ -134,8 +134,9 @@ ru:
         last_name: "Фамилия"
         remember_me: "Запомнить?"
       badge:
-        name: "Имя"
-        reward: "Правило"
+        rule: "Правило"
+        value: "Значение"
+        reward: "Награда"
     select:
       prompt: "Выберите категорию"
 

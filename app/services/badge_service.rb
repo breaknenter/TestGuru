@@ -1,7 +1,4 @@
 class BadgeService
-  RULES = { category: "Веб-разработка",
-            level:    1 }.freeze
-
   def initialize(user)
     @user   = user
     @test   = user.test_passages.last.test
@@ -9,8 +6,8 @@ class BadgeService
   end
 
   def award!
-    Badge.rewards.each do |name|
-      assign_reward(name) if send("#{name}?")
+    Badge.all.each do |badge|
+      @badges << badge if send("#{badge.reward}?", badge.value)
     end
 
     if @badges.any?
@@ -22,46 +19,39 @@ class BadgeService
 
   private
 
-  def assign_reward(name)
-    @badges << Badge.reward(name)
-  end
-
-  def first_time?
+  def first_time?(_pass)
     TestPassage.where(user: @user,
                       test: @test).count == 1
   end
 
-  def category?
-    category = Category
-                 .where("categories.id = ?", @test.category_id)
-                 .pluck(:title)
-                 .join
-
-    return false if repeat? || category != RULES[:category]
+  def category?(title)
+    return false if repeat? || @test.category.title != title
 
     tests = Test
               .joins(:category)
-              .where(categories: { title: RULES[:category] })
-              .pluck(:title)
+              .where(categories: { title: title })
+              .pluck(:id)
 
     finished = Test
                  .joins(:category)
-                 .where(categories: { title: RULES[:category] })
+                 .where(categories: { title: title })
                  .joins(:test_passages)
                  .where(test_passages: { user: @user, finished: true })
-                 .pluck(:title)
+                 .pluck(:id)
                  .uniq
 
     tests.count == finished.count
   end
 
-  def all_level?
-    return false if repeat? || @test.level != RULES[:level]
+  def all_level?(level)
+    level = level.to_i
 
-    tests = Test.where(level: RULES[:level])
+    return false if repeat? || @test.level != level
+
+    tests = Test.where(level: level)
 
     finished = Test
-                 .where(level: RULES[:level])
+                 .where(level: level)
                  .joins(:test_passages)
                  .where(test_passages: { user: @user, finished: true })
                  .uniq

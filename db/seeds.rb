@@ -151,6 +151,6 @@ test.questions.create!(text: "Вопрос 3").answers.create!(
     { text: "Ложный", correct: false } ]
   )
 
-Badge.create!(name: "Прошёл тест с первой попытки",    reward: "first_time")
-Badge.create!(name: "Прошёл все тесты 1 уровня",       reward: "all_level")
-Badge.create!(name: "Прошёл категорию Веб-разработка", reward: "category")
+Badge.create!(rule: "Прошёл тест с первой попытки",    value: "1",              reward: "first_time")
+Badge.create!(rule: "Прошёл все тесты 1 уровня",       value: "1",              reward: "all_level")
+Badge.create!(rule: "Прошёл категорию Веб-разработка", value: "Веб-разработка", reward: "category")

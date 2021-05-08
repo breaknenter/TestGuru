@@ -134,8 +134,9 @@ en:
         last_name: "Last name"
         remember_me: "Remember me"
       badge:
-        name: "Name"
-        image: "Image"
+        rule: "Rule"
+        value: "Value"
+        reward: "Reward"
     select:
       prompt: "Select a category"
 

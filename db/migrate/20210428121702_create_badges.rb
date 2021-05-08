@@ -1,10 +1,11 @@
 class CreateBadges < ActiveRecord::Migration[6.0]
   def up
     create_table :badges do |t|
-      t.string :name,   null: false
+      t.string :rule,   null: false
+      t.string :value,  null: false
       t.string :reward, null: false
 
-      t.index [:name, :reward], unique: true
+      t.index [:rule, :value, :reward], unique: true
 
       t.timestamps
     end

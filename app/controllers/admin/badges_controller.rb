@@ -36,13 +36,13 @@ class Admin::BadgesController < Admin::BaseController
   def destroy
     @badge.destroy
 
-    redirect_to admin_badges_path, notice: t(".update", name: @badge.name)
+    redirect_to admin_badges_path, notice: t(".update", name: @badge.rule)
   end
 
   private
 
   def badge_params
-    params.require(:badge).permit(:name, :reward)
+    params.require(:badge).permit(:rule, :value, :reward)
   end
 
   def get_badges

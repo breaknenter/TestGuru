@@ -23,11 +23,12 @@ ActiveRecord::Schema.define(version: 2021_04_28_135655) do
   end
 
   create_table "badges", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "rule", null: false
+    t.string "value", null: false
     t.string "reward", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name", "reward"], name: "index_badges_on_name_and_reward", unique: true
+    t.index ["rule", "value", "reward"], name: "index_badges_on_rule_and_value_and_reward", unique: true
   end
 
   create_table "categories", force: :cascade do |t|

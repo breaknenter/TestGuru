@@ -5,6 +5,7 @@ ru:
       test: "Тест"
       question: "Вопрос"
       answer: "Ответ"
+      badge: "Значок"
     attributes:
       category:
         title: "Название"
@@ -19,6 +20,10 @@ ru:
       answer:
         text: "Текст"
         question: "Вопрос"
+      badge:
+        rule: "Правило"
+        value: "Значение"
+        reward: "Награда"
 
     errors:
       format: "%{message}"
@@ -49,3 +54,11 @@ ru:
               blank: "Укажите текст ответа"
             correct:
               inclusion: "Только True/False значение для атрибута correct"
+        badge:
+          attributes:
+            rule:
+              blank: "Укажите название правила"
+            value:
+              blank: "Укажите значение"
+            reward:
+              blank: "Выберите награду"
