@@ -5,7 +5,7 @@ class TestPassagesController < ApplicationController
   end
 
   def result
-    if @test_passage.success?
+    if @test_passage.success? && @test_passage.in_time?
       @test_passage.finished!
 
       TestsMailer.completed_test(@test_passage).deliver_now

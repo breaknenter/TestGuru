@@ -12,8 +12,7 @@
       <%= content_tag :small, "",
                       id:     "timer",
                       class:  "hide",
-                      data:   { passage_id: @test_passage.id,
-                                time_left:  @test_passage.time_left } %>
+                      data:   { time_left:  @test_passage.time_left } %>
     </p>
 
     <div>
@@ -27,6 +26,7 @@
     </strong>
 
     <%= form_with url: test_passage_path(@test_passage),
+                       id: "passage-form",
                        method: :put,
                        local: true  do |form| %>
 

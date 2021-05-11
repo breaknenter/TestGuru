@@ -4,7 +4,7 @@ document.addEventListener('turbolinks:load', () => {
   if (timer && Number(timer.dataset.timeLeft) > 0) {
     timer.classList.remove('hide');
 
-    countdown(timer.dataset.timeLeft, timer);
+    countdown(10, timer);
   }
 })
 
@@ -26,10 +26,10 @@ function countdown(time, element) {
       clearInterval(interval);
 
       element.classList.add('text-danger');
-      element.textContent = '| Время вышло';
+      element.textContent = 'Время вышло';
 
       setTimeout(() => {
-        window.location.replace(`/test_passages/${passageId}/result`);
+        document.getElementById('passage-form').submit();
       }, 3000);
     }
   }, 1000);

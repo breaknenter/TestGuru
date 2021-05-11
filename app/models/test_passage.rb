@@ -20,7 +20,7 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    calc_rate >= WIN_RATE && in_time?
+    calc_rate >= WIN_RATE
   end
 
   def calc_rate
@@ -41,6 +41,10 @@ class TestPassage < ApplicationRecord
 
   def time_left
     (end_time - Time.current).to_i
+  end
+
+  def in_time?
+    test.time_to_pass.zero? || time_left >= 0
   end
 
   private
@@ -72,9 +76,5 @@ class TestPassage < ApplicationRecord
 
   def end_time
     created_at + test.time_to_pass * 60
-  end
-
-  def in_time?
-    time_left >= 0 || test.time_to_pass.zero?
   end
 end
