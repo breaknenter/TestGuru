@@ -4,7 +4,7 @@ document.addEventListener('turbolinks:load', () => {
   if (timer && Number(timer.dataset.timeLeft) > 0) {
     timer.classList.remove('hide');
 
-    countdown(10, timer);
+    countdown(timer.dataset.timeLeft, timer);
   }
 })
 
