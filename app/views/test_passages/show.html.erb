@@ -8,6 +8,12 @@
         <%= t(".out_of") %>
         <%= @test_passage.questions_count %>
       </small>
+
+      <%= content_tag :small, "",
+                      id:     "timer",
+                      class:  "hide",
+                      data:   { passage_id: @test_passage.id,
+                                time_left:  @test_passage.time_left } %>
     </p>
 
     <div>

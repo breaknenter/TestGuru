@@ -8,6 +8,8 @@ class TestPassagesController < ApplicationController
     if @test_passage.success?
       @test_passage.finished!
 
+      TestsMailer.completed_test(@test_passage).deliver_now
+
       badges = BadgeService.new(current_user).award!
 
       flash.now[:notice] = t(".award", count: badges.size) if badges
@@ -18,8 +20,6 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
-      TestsMailer.completed_test(@test_passage).deliver_now
-
       redirect_to result_test_passage_path(@test_passage)
     else
       render :show

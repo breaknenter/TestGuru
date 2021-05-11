@@ -29,6 +29,7 @@ dicts = Category.create!(title: "Словари")
 test = dicts.tests.create!(
   title:  "Словарный запас",
   level:  1,
+  time_to_pass: 10,
   author: admin
   )
 
@@ -93,6 +94,7 @@ web_dev = Category.create(title: "Веб-разработка")
 test = web_dev.tests.create!(
   title:  "HTML",
   level:  1,
+  time_to_pass: 5,
   author: admin
   )
 
@@ -127,6 +129,7 @@ test.questions.create!(text: "Укажите тег позволяющий оп�
 test = web_dev.tests.create!(
   title:  "CSS",
   level:  1,
+  time_to_pass: 0,
   author: admin
   )
 

@@ -20,15 +20,15 @@ class TestPassage < ApplicationRecord
   end
 
   def success?
-    calc_rate >= WIN_RATE
-  end
-
-  def finished!
-    update(finished: true)
+    calc_rate >= WIN_RATE && in_time?
   end
 
   def calc_rate
     ((correct_questions / test.questions.count.to_f) * 100).to_i
+  end
+
+  def finished!
+    update(finished: true)
   end
 
   def question_number
@@ -37,6 +37,10 @@ class TestPassage < ApplicationRecord
 
   def questions_count
     test.questions.size
+  end
+
+  def time_left
+    (end_time - Time.current).to_i
   end
 
   private
@@ -64,5 +68,13 @@ class TestPassage < ApplicationRecord
       .order(:id)
       .where("id > ?", current_question.id)
       .first
+  end
+
+  def end_time
+    created_at + test.time_to_pass * 60
+  end
+
+  def in_time?
+    time_left >= 0 || test.time_to_pass.zero?
   end
 end

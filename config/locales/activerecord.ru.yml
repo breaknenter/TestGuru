@@ -12,6 +12,7 @@ ru:
       test:
         title: "Название"
         level: "Уровень"
+        time_to_pass: "Время прохода"
         category: "Категория"
         author: "Автор"
       question:
