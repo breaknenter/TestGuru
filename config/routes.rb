@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     end
   end
 
+  resource :badges,   only: :show
+  resource :contacts, only: %i[show create]
+
   namespace :admin do
     resources :tests do
       patch :update_inline, on: :member
@@ -27,8 +30,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :badges
+
     get "/gists", to: "gists#index"
   end
-
-  resource :contacts, only: %i[show create]
 end

@@ -23,6 +23,10 @@ class TestPassage < ApplicationRecord
     calc_rate >= WIN_RATE
   end
 
+  def finished!
+    update(finished: true)
+  end
+
   def calc_rate
     ((correct_questions / test.questions.count.to_f) * 100).to_i
   end

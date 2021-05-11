@@ -1,0 +1,25 @@
+<p>
+  <strong>Название:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Уровень:</strong>
+  <%= @test.level %>
+</p>
+
+<p>
+  <strong>Вопросы:</strong>
+</p>
+
+<% if @test.questions.count.nonzero? %>
+  <% @test.questions.each do |question| %>
+    <p><%= link_to question.text, admin_question_path(question) %></p>
+  <% end %>
+<% else %>
+  <p>Вопросов нет</p>
+<% end %>
+
+<%= link_to "Добавить вопрос", new_admin_test_question_path(@test) %> |
+<%= link_to "Изменить", edit_admin_test_path(@test) %> |
+<%= link_to "Назад", admin_tests_path %>

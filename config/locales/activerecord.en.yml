@@ -5,6 +5,7 @@ en:
       test: "Test"
       question: "Question"
       answer: "Answer"
+      badge: "Badge"
     attributes:
       category:
         title: "Title"
@@ -19,6 +20,10 @@ en:
       answer:
         text: "Text"
         question: "Question"
+      badge:
+        rule: "Rule"
+        value: "Value"
+        reward: "Reward"
 
     errors:
       format: "%{message}"
@@ -49,3 +54,11 @@ en:
               blank: "Enter answer text"
             correct:
               inclusion: "Only True / False value for the correct attribute"
+        badge:
+          attributes:
+            rule:
+              blank: "Specify the name of the rule"
+            value:
+              blank: "Specify a value"
+            reward:
+              blank: "Choose a reward"

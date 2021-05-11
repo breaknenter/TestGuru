@@ -5,6 +5,13 @@ class TestPassagesController < ApplicationController
   end
 
   def result
+    if @test_passage.success?
+      @test_passage.finished!
+
+      badges = BadgeService.new(current_user).award!
+
+      flash.now[:notice] = t(".award", count: badges.size) if badges
+    end
   end
 
   def update

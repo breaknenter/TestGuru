@@ -21,6 +21,29 @@ ru:
       form_inline:
         submit: "Ок"
 
+    badges:
+      index:
+        header: "Значки"
+        new_badge: "Новый значок"
+        badges_not_found: "Значков нет"
+
+      create:
+        success: "Награда добавлена"
+
+      new:
+        header: "Новый значок"
+
+      edit:
+        header: "Изменить: %{name}"
+
+      show:
+
+      update:
+        update: "Обновлено"
+
+      destroy:
+        update: "Награда %{name} удалена"
+
     gists:
       index:
         header: "Gists"
@@ -60,6 +83,9 @@ ru:
       result: "Результат:"
       rate: "Процент успеха:"
       to_tests: "К списку тестов"
+      award:
+        one: "Вы получили %{count} награду!"
+        few: "Вы получили %{count} награды!"
     gist:
       success: "Вопрос сохранён:"
       fail: "Ошибка сохранения вопроса"
@@ -107,6 +133,10 @@ ru:
         first_name: "Имя"
         last_name: "Фамилия"
         remember_me: "Запомнить?"
+      badge:
+        rule: "Правило"
+        value: "Значение"
+        reward: "Награда"
     select:
       prompt: "Выберите категорию"
 
@@ -130,6 +160,14 @@ ru:
     gists: "gists"
     exit: "выход"
     contacts: "контакты"
+    badges: "награды"
+
+  badges:
+    show:
+      title: "Награды"
+      all_badges: "Доступные награды"
+      badges_not_found: "У вас нет наград"
+      all_badges_not_found: "Нет доступных наград"
 
   contacts:
     show:

@@ -1,5 +1,5 @@
 class CreateGists < ActiveRecord::Migration[6.0]
-  def self.up
+  def up
     create_table :gists do |t|
       t.string :url, null: false
 
@@ -10,7 +10,7 @@ class CreateGists < ActiveRecord::Migration[6.0]
     end
   end
 
-  def self.down
+  def down
     drop_table :gists, if_exists: true
   end
 end
