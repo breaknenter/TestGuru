@@ -8,6 +8,11 @@
         <%= t(".out_of") %>
         <%= @test_passage.questions_count %>
       </small>
+
+      <%= content_tag :small, "",
+                      id:     "timer",
+                      class:  "hide",
+                      data:   { time_left:  @test_passage.time_left } %>
     </p>
 
     <div>
@@ -21,6 +26,7 @@
     </strong>
 
     <%= form_with url: test_passage_path(@test_passage),
+                       id: "passage-form",
                        method: :put,
                        local: true  do |form| %>
 
